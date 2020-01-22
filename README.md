@@ -1,6 +1,6 @@
 # tetchua
-the source code of tetchua.com
+The source code of tetchua.com
 
-keywords: pwa, html, css, javascript
+Keywords: PWA, HTML, CSS, JavaScript
 
-built by @anhtuan9622
+Built by [Tuan Hoang](http://hoanganhtuan.name/)
