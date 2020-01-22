@@ -46,18 +46,22 @@
             setInterval(tetcountdown, 1000);
         });
         
+        // list of Tets
         let tetlist = ["January 25 2020", "February 12 2021", "February 01 2022", "January 22 2023"];
 
         function tetcountdown() {
+            // get the first Tet from the list above and compare it to the current time
             var tet = new Date(tetlist[0]);
             var now = new Date();
             var c = tet.getTime() - now.getTime();
 
+            // do some Maths...
             var days = Math.floor(c / (1000 * 60 * 60 * 24));
             var hours = Math.floor((c % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((c % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((c % (1000 * 60)) / 1000);
 
+            // check to see whether it's Tet
             if (c > 0) {
                 document.querySelector('#countdown').innerHTML = "Còn " + days + " ngày, " + hours + " giờ, " + minutes + " phút, " + seconds + " giây nữa"; 
             } else {
@@ -99,6 +103,7 @@
             }
         }
 
+        // color changes & fireworks
         function teteffect() {
             document.querySelector('body').style = 'color: yellow; background-color: red;';
             document.querySelector('.pyro').style.display = "block";
@@ -121,6 +126,8 @@
 </head>
 
 <body>
+
+    <!-- remove these 3 files below if not using Firebase -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="/__/firebase/7.7.0/firebase-app.js"></script>
 
@@ -136,7 +143,7 @@
         <noscript>
             <h2>Please enable JavaScript to use this site</h2>
         </noscript>
-        <div id="countdown"></div>
+        <div id="countdown">Đang tính...</div>
         <div id="tet"></div>
         <div class="pyro" style="display: none;">
             <div class="before"></div>
