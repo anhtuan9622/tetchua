@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html lang="vi">
+<head>
+    <title>Tết Chưa?</title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="Tết, Tết, Tết, Tết đến chưa???"/>
+    <meta name="keywords" content="tet, tết, tết âm lịch, tết nguyên đán, lunar new year"/>
+    <meta name="author" content="@anhtuan9622"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#111111"/>
+
+    <link rel="icon" href="icons/icon-16x16.png">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap">
+    <link rel="stylesheet" href="fireworks.css">
+    <link rel="manifest" href="manifest.json">
+
+    <style type="text/css">
+        body {
+            font-family: 'Amatic SC', cursive;
+            color: #111;
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+            color: #111;
+        }
+        .container {
+            margin-top: 250px;
+            padding: 20px;
+        }
+        #countdown, #tet {
+            font-size: 60px;
+        }
+        #info {
+            margin-top: 10px;
+        }
+    </style>
+    
+    <!-- Happy Tet -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setInterval(tetcountdown, 1000);
+        });
+        
+        let tetlist = ["January 25 2020", "February 12 2021", "February 01 2022", "January 22 2023"];
+
+        function tetcountdown() {
+            var tet = new Date(tetlist[0]);
+            var now = new Date();
+            var c = tet.getTime() - now.getTime();
+
+            var days = Math.floor(c / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((c % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((c % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((c % (1000 * 60)) / 1000);
+
+            if (c > 0) {
+                document.querySelector('#countdown').innerHTML = "Còn " + days + " ngày, " + hours + " giờ, " + minutes + " phút, " + seconds + " giây nữa"; 
+            } else {
+                var a = now.getDate() - tet.getDate();
+                if (a === 0) {
+                    teteffect();
+                    document.querySelector('#tet').innerHTML = "Mùng 1 Tết rồi";
+                } else if (a === 1) {
+                    teteffect();
+                    document.querySelector('#tet').innerHTML = "Mùng 2 Tết rồi";
+                } else if (a === 2) {
+                    teteffect();
+                    document.querySelector('#tet').innerHTML = "Mùng 3 Tết rồi";
+                } else if (a === 3) {
+                    teteffect();
+                    document.querySelector('#tet').innerHTML = "Mùng 4 Tết rồi";
+                } else if (a === 4) {
+                    teteffect();
+                    document.querySelector('#tet').innerHTML = "Mùng 5 Tết rồi";
+                } else if (a === 5) {
+                    teteffect();
+                    document.querySelector('#tet').innerHTML = "Mùng 6 Tết rồi";
+                } else if (a === 6) {
+                    teteffect();
+                    document.querySelector('#tet').innerHTML = "Mùng 7 Tết</br>Sắp hết Tết rồi";
+                } else if (a === 7) {
+                    teteffect();
+                    document.querySelector('#tet').innerHTML = "Mùng 8 Tết</br>Sắp hết Tết rồi";
+                } else if (a === 8) {
+                    teteffect();
+                    document.querySelector('#tet').innerHTML = "Mùng 9 Tết</br>Sắp hết Tết rồi";
+                } else if (a === 9) {
+                    teteffect();
+                    document.querySelector('#tet').innerHTML = "Mùng 10 Tết</br>Sắp hết Tết rồi";
+                } else if (a > 9) {
+                    document.querySelector('#tet').innerHTML = "Hết Tết rồi";
+                }
+                document.querySelector('#countdown').innerHTML = "";
+            }
+        }
+
+        function teteffect() {
+            document.querySelector('body').style = 'color: yellow; background-color: red;';
+            document.querySelector('.pyro').style.display = "block";
+        }
+
+    </script>
+
+    <!-- add service worker for PWA -->
+    <script>
+        if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(function() {
+                console.log('SW registered');
+            })
+            .catch(function(err){
+                console.error('SW registration failed', err);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.7.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.7.0/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <div id="info"><a href="https://github.com/anhtuan9622/tetchua"><img src="icons/github-32x32.png" alt="GitHub" width="16" height="16"></a></div>
+    <div class="container">
+        <noscript>
+            <h1>Please enable JavaScript to use this site.</h1>
+        </noscript>
+        <div id="countdown"></div>
+        <div id="tet"></div>
+        <div class="pyro" style="display: none;">
+            <div class="before"></div>
+            <div class="after"></div>
+        </div>
+    </div>
+</body>
+</html lang="en">
