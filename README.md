@@ -1,8 +1,7 @@
 # tetchua
-The source code of tetchua.com
 
-Keywords: PWA, HTML, CSS, JavaScript
+A simple countdown timer to Lunar New Year
 
-Built by [Tuan Hoang](http://hoanganhtuan.name/)
+Demo: https://anhtuan9622.github.io/tetchua/
 
 ![Screenshot](screenshot.png "Screenshot")
